@@ -179,7 +179,7 @@ module.exports = {
       type: "category",
       label: "L1<>L2 Communication",
       items: [
-        "develop/l1-l2-communication/data-tunnel",
+        
         "develop/l1-l2-communication/state-transfer"
       ],
     },
