@@ -13,13 +13,13 @@ Matic Network is a commit-chain based scaling solution for public blockchains. I
 
 ## How is Matic different from other implementations of Plasma?
 
-Matic Network's implementation of Plasma is built on state-based side chains which run on EVM, while the other implementations of Plasma primarily use UTXOs which restricts them to being payment specific. Having state based side chains allows Matic to provide scalability for generic smart contracts as well.
+Matic Network's implementation of Plasma is built on state-based commit chains which run on EVM, while the other implementations of Plasma primarily use UTXOs which restricts them to being payment specific. Having state based commit chains allows Matic to provide scalability for generic smart contracts as well.
 
-Secondly, Matic Network uses a public checkpointing layer which publishes checkpoints after periodic intervals (unlike checkpoints  after every block in Plasma Cash) allowing the side chains to operate at high speeds while publishing the checkpoints in batches. These checkpoints along with the fraud proofs ensure that Matic's side chains operate in a secure manner and any fraudulent activity can be detected on Ethereum mainchain and be penalized by slashing the stakes of the bad actors. This mainchain security is supplementary to the PoS protocol security on the side chains.
+Secondly, Matic Network uses a public checkpointing layer which publishes checkpoints after periodic intervals (unlike checkpoints  after every block in Plasma Cash) allowing the commit chains to operate at high speeds while publishing the checkpoints in batches. These checkpoints along with the fraud proofs ensure that Matic's commit chains operate in a secure manner and any fraudulent activity can be detected on Ethereum mainchain and be penalized by slashing the stakes of the bad actors. This mainchain security is supplementary to the PoS protocol security on the commit chains.
 
 ## Your project provides scalability for Ethereum using plasma chains, is it a protocol or a native blockchain in itself?
 
-Matic Network is a "side chain" solution where Ethereum mainchain assets, i.e. all Dapps/Tokens/Protocols of the main chain can be moved/migrated to Matic Network side chain(s) and when needed, one can withdraw assets back to mainchain. 
+Matic Network is a "commit chain" solution where Ethereum mainchain assets, i.e. all Dapps/Tokens/Protocols of the main chain can be moved/migrated to Matic Network commit chain(s) and when needed, one can withdraw assets back to mainchain. 
 
 ## What are the competitive advantages of Matic over its competitor?
 
@@ -39,7 +39,7 @@ As Plasma Cash works with Non-Fungible Tokes (NFT), it works great for game card
 
 Apart from that, amongst other scaling projects like Ziliqa and Quarkchain, Matic stands out due to its ability to achieve scale while maintaining a great degree of decentralization.
 
-More importantly, these scalability projects have a reinventing the wheel problem. They are creating new blockchains where the developer community, product ecosystem, technical documentation and more importantly businesses need to be built from "scratch". Matic on the other hand, it being an EVM enabled chain,  programming language, developer documentation etc is available off the shelf to Matic Network. All the Dapps/assets built on Ethereum mainchain have scalability available at the click of a button. This is made possible by Matic being an EVM based side chain.
+More importantly, these scalability projects have a reinventing the wheel problem. They are creating new blockchains where the developer community, product ecosystem, technical documentation and more importantly businesses need to be built from "scratch". Matic on the other hand, it being an EVM enabled chain,  programming language, developer documentation etc is available off the shelf to Matic Network. All the Dapps/assets built on Ethereum mainchain have scalability available at the click of a button. This is made possible by Matic being an EVM based commit chain.
 
 - Payments
 
@@ -64,9 +64,9 @@ Also, Matic Network's core focus on creating applications having an enhanced use
 
 ## How does Matic compare with other commit-chain solutions like POA/Go-Chain?
 
-Matic Network's biggest differentiator is Plasma Framework which ensures Decentralization and Security of side chain transactions.
+Matic Network's biggest differentiator is Plasma Framework which ensures Decentralization and Security of commit chain transactions.
 
-Projects like POA use block producers notarised by Government and Go-Chain relies on institutions across various countries. Such public block producers have a big chance of getting influenced by powerful external agencies and self-interests. Also, side chain transactions are secured only by side chain consensus in which the participants are very low in number 3-25 while on Matic Network, all side transactions are secured by multiple mechanisms on the side chain as well as mainchain.
+Projects like POA use block producers notarised by Government and Go-Chain relies on institutions across various countries. Such public block producers have a big chance of getting influenced by powerful external agencies and self-interests. Also, commit chain transactions are secured only by commit chain consensus in which the participants are very low in number 3-25 while on Matic Network, all side transactions are secured by multiple mechanisms on the commit chain as well as mainchain.
 
 On commit-chain, any transactions done by Block producer layer are verified and checkpointed to the mainchain by a highly decentralized checkpointing layer. So if any fraudulent transaction happens on commit-chain it can be detected and handled by the checkpointing layer. Even in extreme and highly unlikely scenario wherein the block producer layer as well as the checkpointing layer both collude, even then Mainchain has fraud proofs on which anyone from the public can come and challenge any transaction that they deem fraudulent on the commit-chain. If the challenge is successful, there is a huge economic disincentive/financial punishment to the colluding parties as their stakes are slashed. Also, the public challenger is rewarded with slashed stakes of the fraudulent commit-chain actors.
 
@@ -78,19 +78,22 @@ Secondly, capacity and TPS of Matic commit-chain are much higher than that of PO
 
 Matic Network uses Plasma framework which has few key principles. In simple words, proofs of the transactions happening off chain should be pushed on Mainchain, Fraud proofs on the mainchains and safe exit mechanisms in case of a fraudulent activity for ex. Exit queues.
 
-The same mechanisms can be implemented on any smart contract enabled chain to support side chains.
+The same mechanisms can be implemented on any smart contract enabled chain to support commit chains.
 
 Basically any asset being deposited to Matic Network is deposited as a equivalent protocol contract. For example an ERC20 on Ethereum Mainchain is deployed as a ERC20 on the Matic commit-chain. Similarly for ERC721 or any other standard. The same will go for say, a NEP5 standard. It will have an equivalent protocol contract on the Matic side chain.
 
-Also, if by Multi Chain support you mean multiple side chains, then yes Matic checkpointing layer can support multiple side chains. A single side chain can have tens of thousands of TPS. Multiple side chains can provide a capacity of millions of transactions per second to Matic Network.
+Also, if by Multi Chain support you mean multiple commit chains, then yes Matic checkpointing layer can support multiple commit chains. A single commit chain can have tens of thousands of TPS. Multiple commit chains can provide a capacity of millions of transactions per second to Matic Network.
 
 The Plasma whitepaper itself has made it very clear on how multiple commit-chain can be implemented. The Plasma commit-chain tree architecture is the best way to implement this. You can have a number of side-chains of arbitrary depth, with different use cases possible as you go up and down the tree. commit-chain exits are an important design consideration in Plasma, and therefore, we will need to implement multiple commit-chain, because if exits happen in one child chain, users can easily shift to another side chain. The entire element of the Proof of Stake layer is to mitigate the possibility of such exits, so that user experience is not spoilt. -->
 
-## Via what principles will new Side Chains be added? Will there be any special requirements for private companies' local Side Chains?
+## Via what principles will new Commit Chains be added? Will there be any special requirements for private companies' local commit Chains?
+
 
 As mentioned above, commit-chain for a single Layer 1 blockchain (say Ethereum) can be implemented using the Plasma framework. Relative to state channels, Plasma represents a superior alternative to scaling frameworks, chiefly due to the security guarantees provided by the framework - which basically say that users will never lose funds in any eventuality. Sure, there could be delays in getting back the money, but a Byzantine Plasma operator cannot create money out of thin air, or double spend a transaction.
 
-Matic Network will strive to be a completely open and public blockchain infra in the future wherein the economic incentives/disincentives will primarily drive the security and stability of the system. So anyone should be able to join the system and participate in the consensus. In the network seeding stage however, initially Matic network will have to play a larger role to enable side chains.
+
+Matic Network will strive to be a completely open and public blockchain infra in the future wherein the economic incentives/disincentives will primarily drive the security and stability of the system. So anyone should be able to join the system and participate in the consensus. In the network seeding stage however, initially Matic network will have to play a larger role to enable commit chains.
+
 
 Also, Matic side chains would be primarily public side chains i.e commit-chain available for use for anyone in public just like other public blockchains. Although, Enterprise Matic chains will intend to provide dedicated side chains (non-privacy enabled) for particular organizations. The security and decentralization of such chains would still be kept intact using the checkpointing layer and fraud proofs on the mainchain. However, supporting privacy enabled commit-chain with checkpoint validation and fraud proofs on the mainchain is still a research topic for us. We are looking into new technologies like zkSNARK and zkSTARK.
 
@@ -100,9 +103,10 @@ Both Matic Network and Celer Network are different solutions to the same problem
 
 Matic Network is aiming to build a DApp developer ecosystem. Since it uses an account-based Plasma commit-chain, and also employs a EVM-compatible runtime known as the Matic VM, it will be relatively easier for Ethereum based DApps to migrate to Matic Network once it is live. So in this respect as well, Celer Network is different in terms of developer interfacing.
 
-## Will side chains also be synced with the Mainchain (Ethereum)?
+## Will commit chains also be synced with the Mainchain (Ethereum)?
 
 Absolutely! As discussed previously, we are implementing the Matic Network infrastructure on the foundation of Plasma.
+
 For this, Plasma framework mandates proofs of the transactions/blocks produced on the side chains to be published on the mainchain. The public checkpointing layer will validate all the transactions happening on the side chains and publish the proofs to the mainchain. To ensure foolproof security of side chain transactions, the mainchain Plasma contract contains various kinds of Fraud Proofs where any commit-chain transactions can be challenged for any fraudulent activity. If a challenger succeeds, the stakes of the side chain actors involved in the fraud are slashed and are transferred to the challenger. This is equivalent to an ever running high stake bug bounty.A good diagram for understanding is as below:.
 
 ![Screenshot](../../static/img/matic/Architecture.png)
@@ -123,7 +127,7 @@ But before that happens, we will add support for specific contracts and protocol
 
 Priority order would be DEX, Payments, Liquidity Providers, Lending & Credit Scoring, Atomic Swaps.
 
-Although most of these features will run in parallel, we are in talks with various top teams to collaborate with us to deploy these protocols on Matic side chains.
+Although most of these features will run in parallel, we are in talks with various top teams to collaborate with us to deploy these protocols on Matic commit chains.
 
 ## Why will it be difficult to replicate Matic's plasma implementation?
 
@@ -147,13 +151,14 @@ So firstly, The PoA nodes that you saw, are going to be Delegates ( with Proof o
 
 Secondly, let’s assume all of the Delegates (or 2/3rd of them) turn bad actors and produce faulty blocks, then you have PoS layer stakers who are going to validate all the blocks and if any frauds are committed the stakes of Delegates are slashed, the checkpointing is stopped for the corrective actions.
 
-Thirdly, let's say even the Staker PoS layer (which would be a large number of nodes) also turns bad and collude to produce faulty checkpoints. I.e all the PoA are corrupt and PoS are corrupt Even then following Plasma philosophy we are writing one of the coveted things of side chain scaling, **Fraud proofs** which is being watched by many big projects ( The watchers can be seen as our repository watchers on Github). This fraud proof mechanism enables any one in public to challenge any transaction on the Mainchain, succeeding which they stand to gain rewards from the slashing of stakes of all the stakeholders involved in the commited fraud.
+Thirdly, let's say even the Staker PoS layer (which would be a large number of nodes) also turns bad and collude to produce faulty checkpoints. I.e all the PoA are corrupt and PoS are corrupt Even then following Plasma philosophy we are writing one of the coveted things of commit chain scaling, **Fraud proofs** which is being watched by many big projects ( The watchers can be seen as our repository watchers on Github). This fraud proof mechanism enables any one in public to challenge any transaction on the Mainchain, succeeding which they stand to gain rewards from the slashing of stakes of all the stakeholders involved in the commited fraud.
 
 ## Why is Matic Token required?
 
 The following reasons reinforce the need of having Matic token
 
 ### Matic intends to be a general purpose scaling solution for public blockchains:
+
 We are starting out on Ethereum as our first base chain, but in the future Matic can be deployed on multiple base chains. There will be other basechains added soon, So it won’t make sense to have one currency (ether) to be used for paying fees on the commit-chain. If there's an existential concern over any basechains future, having that basechains’ currency as native asset for the Matic network will cripple the scaling network. Therefore it is important to build the Staker ecosystem on Matic’s own network token.
 
 ### Appcoin security model:
@@ -192,7 +197,7 @@ Yes. The demo is available [Here](https://www.youtube.com/watch?v=l1vb5pjezJ8)
 
 ## What is the transaction per seconds?
 
-Currently “a single Matic side chain” can theoretically handle 2^16 (65,000+) transactions per second
+Currently “a single Matic commit chain” can theoretically handle 2^16 (65,000+) transactions per second
 
 ## Is token type ERC20?
 
@@ -209,7 +214,7 @@ In terms of the Roadmap, we are going to publish a detailed roadmap soon.
 
 ## What is the expected TPS you'll be able to bring to the Ethereum network? What are you running at now on testnet?
 
-A single side chain has the capacity of 2^16 (65,000+) transactions per second. Matic network has the capability to add multiple side chains, But currently, our focus would be on stabilizing the network with one side chain.
+A single commit chain has the capacity of 2^16 (65,000+) transactions per second. Matic network has the capability to add multiple commit chains, But currently, our focus would be on stabilizing the network with one commit chain.
 
 ## "We have chosen Ethereum as the first platform to showcase our scalability" What other platforms are you aiming toward, and is there a timeline for implementation
 
