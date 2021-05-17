@@ -326,7 +326,16 @@ module.exports = {
             },
           ],
         },
-        "contribute/state-sync",
+        {
+          type: "category",
+          label: "State Sync",
+          items: [
+            "contribute/state-sync/state-sync",
+            "contribute/state-sync/how-state-sync-works",
+
+            
+          ],
+        },
         "home/architecture/security-models",
       ],
     },
@@ -521,7 +530,17 @@ module.exports = {
             },
           ],
         },
-        "contribute/state-sync",
+        {
+          type: "category",
+          label: "State Sync",
+          items: [
+            "contribute/state-sync/state-sync",
+            "contribute/state-sync/how-state-sync-works",
+
+            
+          ],
+        },
+        
         "home/architecture/security-models",
       ],
     },
