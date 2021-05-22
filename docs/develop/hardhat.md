@@ -33,6 +33,7 @@ The sample project will ask you to install hardhat-waffle and hardhat-ethers.You
 - create .secret file in the root to store your private key
 
 ```js
+require("@nomiclabs/hardhat-ethers");
 const fs = require('fs');
 const privateKey = fs.readFileSync(".secret").toString().trim();
 module.exports = {
