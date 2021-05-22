@@ -24,15 +24,17 @@ You can either deploy
 - A mintable token contract on the Matic chain or
 - Submit a mapping request and the mintable token contract can be autodeployed for you on the Matic chain via the Mapper tool. You just need to submit a mapping request at [https://mapper.matic.today/](https://mapper.matic.today/) and leave the child contract field blank in the form. Also, do remember to choose the Mintable option in the form.
 
-> Note that the Ethereum contract needs to be deployed as shown in the next step - no minting needs to be done on Ethereum though. It is required so that tokens can be withdrawn to Ethereum if need be. 
+Please visit this [link](/docs/develop/ethereum-matic/submit-mapping-request) to understand how to create a new mapping request. 
 
-- If you want to deploy the contract by yourself, then the child contract should look like this. You are free to make custom changes to this contract, but ensure that the `deposit`, `withdraw` and `mint` functions are present.
+- If you want to deploy the contract by yourself, then the child contract should look like the following. You are free to make custom changes to this contract, but ensure that the `deposit`, `withdraw` and `mint` functions are present.
 
     - ChildMintableERC20 -  [https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildMintableERC20.sol](https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildMintableERC20.sol)
     - ChildMintableERC721 - [https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildMintableERC721.sol](https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildMintableERC721.sol)
     - ChildMintableERC1155 - [https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildMintableERC1155.sol](https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildMintableERC1155.sol)
 
 Please do mention the contract address of the deployed child token when you submit the mapping request. 
+
+> Note that the Ethereum contract needs to be deployed as shown in the next step - no minting needs to be done on Ethereum though. It is required so that tokens can be withdrawn to Ethereum if need be. 
 
 ### Contract to be deployed on Ethereum
 
