@@ -10,67 +10,35 @@ image: https://matic.network/banners/matic-network-16x9.png
 
 ### Introduction
 
-Assets can be transferred in between root chain & child chain. Let's be first clear regarding nomenclature
+Mapping is necessary in order to transfer your assets to and fro the Ethereum and Matic Network.
 
-- **Root chain/ Base chain/ Parent chain/ Layer 1** :: all are same, referring to either Goerli or Ethereum Mainnet
-- **Child chain/ Layer 2** :: refers to either Matic Mumbai or Matic Matic Mainnet
+- **Root chain** :: referring to either Goerli or Ethereum Mainnet
+- **Child chain** :: refers to either Matic Mumbai or Matic Matic Mainnet
 
-For assets i.e. ERC20, ERC721, ERC1155 to be transferrable in between chains, we need to be following certain guidelines
+If you already have your token contract deployed on Root chain and want to move it to Child chain, then this walkthorugh can be followed. But If you intend to deploy your contract on Matic Mainnet first, mint the tokens on Child chain fitst and then move it back to the Root chain, then you need to follow this [guide](/docs/develop/ethereum-matic/mintable-assets)
 
-- Assets must have required predicate contracts deployed
-- Asset contract need to deployed on root chain
-- Modified version of asset contract needs to be deployed on child chain
-- Then they need to be mapped by calling [`RootChainManager.mapToken(...)`](https://github.com/maticnetwork/pos-portal/blob/c50e4144d90fcd63aa3d5600b11ccfff9b395fcf/contracts/root/RootChainManager/RootChainManager.sol#L165), which can only be performed by certain accounts
+## Standard Child Token
 
-> For mapping i.e. the final step, make sure you check [below](#request-submission)
+If you just need a standard ERC20/ERC721/ERC1155 contract, then you can go ahead and submit a mapping request at https://mapper.matic.today/ and we will auto deploy the standard child token contract for you. 
 
-### Walk through
+Standard Child Token contract will look like these:-
+1. [ERC20](https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildERC20.sol#L1492-#L1508)
+2. [ERC721](https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildERC721.sol#L2157-#L2238)
+3. [ERC1155](https://github.com/maticnetwork/pos-portal/blob/master/flat/ChildERC1155.sol#L1784-#L1818)
 
-Here we're going to modify child smart contract, _given root smart contract_, for making it mapping eligible.
+Please visit this [link](/docs/develop/ethereum-matic/submit-mapping-request) to understand how to create a new mapping request. 
 
-#### Root Token Contract
+## Custom Child Token
 
-Let's moidfy [this](https://github.com/maticnetwork/pos-portal/blob/master/contracts/child/ChildToken/ChildERC20.sol) smart contract & use it as our root token contract.
+But, if you need a custom child token contract which has additional functions to the standard functions, **then you will have to deploy your token contracts on the Child chain** and submit a mapping request [here](https://mapper.matic.today/) by mentioning the address of your deployed child token contract. Let us now see an example of creating a custom child token contract.
 
-```js title="RootERC20.sol"
-pragma solidity 0.6.6;
+**Your custom child contract should follow certain guidelines before you deploy it on the child chain.**
 
-import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+`deposit` method should be present in your custom child contract. This function is called by the `ChildChainManagerProxy`  contract whenever a deposit is initiated from the root chain. This deposit function internally mints the token on the child chain.
 
-contract RootERC20 is ERC20,
-{
-    constructor(string memory name, string memory symbol, uint8 decimals) public ERC20(name, symbol) {
-        
-        _setupDecimals(decimals);
-        _mint(msg.sender, 10 ** 27); // minting 10^9 MyToken, on root chain
-    
-    }
+`withdraw` method should be present in your custom child contract. It can be called to burn your tokens on the child chain. Burning is the first step of your withdrawal process. This withdraw function internally burns the token on the child chain.
 
-}
-```
-
-Lets say we've just deployed this on Goerli Testnet at `0x...`.
-
-#### Child Token Contract
-
-Now we need to add two functions in above defined smart contract i.e. {`deposit`, `withdraw`}.
-
-##### Why ?
-
-For transferring assets from root chain to child chain, we need to call [`RootChainManager.depositFor(...)`](https://github.com/maticnetwork/pos-portal/blob/c50e4144d90fcd63aa3d5600b11ccfff9b395fcf/contracts/root/RootChainManager/RootChainManager.sol#L205), which will eventually ask [`StateSender.syncState(...)`](https://github.com/maticnetwork/pos-portal/blob/c50e4144d90fcd63aa3d5600b11ccfff9b395fcf/contracts/root/StateSender/IStateSender.sol#L4), to transfer this asset from root chain to child chain, by emitting [`StateSynced`](https://github.com/maticnetwork/pos-portal/blob/c50e4144d90fcd63aa3d5600b11ccfff9b395fcf/contracts/root/StateSender/DummyStateSender.sol#L29) event. 
-
-But before that make sure you've approved [`RootChainManagerProxy`](https://github.com/maticnetwork/static/blob/e9604415ee2510146cb3030c83d7dbebff6444ad/network/testnet/mumbai/index.json#L52) to spend equal amount of token(s), so that it can call `RootERC20.transferFrom` & start deposit. 
-
-Once this event is emitted, our Heimdal Nodes, which keep monitoring root chain periodically, will pick up `StateSynced` event & perform call to `onStateReceive` function of target smart contract. Here our target smart contract is nothing but [`ChildChainManager.onStateReceive`](https://github.com/maticnetwork/pos-portal/blob/c50e4144d90fcd63aa3d5600b11ccfff9b395fcf/contracts/child/ChildChainManager/ChildChainManager.sol#L48).
-
-`deposit` method which we're going to add in our smart contract, is going to be called by [`ChildChainManagerProxy`](https://github.com/maticnetwork/static/blob/e9604415ee2510146cb3030c83d7dbebff6444ad/network/testnet/mumbai/index.json#L90) & can only be called by this one.
-
-`withdraw` method to be called on child smart contract, which will be check pointed & published on root chain as Merkel Root Proof, which then can be finally exitted by calling [`RootChainManager.exit`](https://github.com/maticnetwork/pos-portal/blob/c50e4144d90fcd63aa3d5600b11ccfff9b395fcf/contracts/root/RootChainManager/RootChainManager.sol#L279), while submitting proof.
-
-- Token minting happens in `deposit` method.
-- Tokens to be burnt in `withdraw` method.
-
-These rules need to followed to keep balance of assets between two chains, otherwise it'll be assets created from thin air.
+These rules need to followed to maintain proper balance of assets between two chains.
 
 > Note: No token minting in constructor of child token contract.
 
@@ -116,9 +84,9 @@ contract ChildERC20 is ERC20,
 }
 ```
 
-But one thing you might notice, `deposit` function, in our implementation can be called by anyone, which must not happen. So we're going to make sure it can only be called by [`ChildChainManagerProxy`](https://github.com/maticnetwork/static/blob/e9604415ee2510146cb3030c83d7dbebff6444ad/network/testnet/mumbai/index.json#L90).
+But one thing you might notice, The `deposit` function, in the above implementation can be called by anyone, which must not happen. So we're going to make sure it can only be called by `ChildChainManagerProxy`. (ChildChainManagerProxy - on [Mumbai](https://explorer-mumbai.maticvigil.com/address/0xb5505a6d998549090530911180f38aC5130101c6/transactions) , on [Matic Mainnet](https://explorer-mainnet.maticvigil.com/address/0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa/) )
 
-```js title="ComplaintChildERC20.sol"
+```js title="ChildERC20.sol"
 pragma solidity 0.6.6;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -181,7 +149,8 @@ This updated implementation can be used for mapping.
 Steps :
 
 - First deploy root token on root chain i.e. {Goerli, Ethereum Mainnet}
-- Modify root token by adding `deposit` & `withdraw` functions & deploy corresponding child token on child chain i.e. {Matic Mumbai, Matic Mainnet}
+- Ensure your child token has the `deposit` & `withdraw` functions
+- deploy the child token on child chain i.e. {Matic Mumbai, Matic Mainnet}
 - Then submit a mapping request, to be resolved by team.
 
 ### Request Submission
