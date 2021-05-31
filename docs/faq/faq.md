@@ -157,10 +157,6 @@ Thirdly, let's say even the Staker PoS layer (which would be a large number of n
 
 The following reasons reinforce the need of having Matic token
 
-### Matic intends to be a general purpose scaling solution for public blockchains:
-
-We are starting out on Ethereum as our first base chain, but in the future Matic can be deployed on multiple base chains. There will be other basechains added soon, So it won’t make sense to have one currency (ether) to be used for paying fees on the commit-chain. If there's an existential concern over any basechains future, having that basechains’ currency as native asset for the Matic network will cripple the scaling network. Therefore it is important to build the Staker ecosystem on Matic’s own network token.
-
 ### Appcoin security model:
 Matic Network intends to enable Dapps to pay Matic network fees in Dapp-coins by abstracting a token swap mechanism using a liquidity pool like Kyber. The user simply uses her Dapp-coins to pay fees, in the background the Dappcoin is swapped for Matic tokens. Hence the DApp developers who want to provide a seamless user experience will help maintain a Matic Network liquidity pool.
 
