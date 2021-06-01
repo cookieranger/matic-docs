@@ -10,6 +10,8 @@ image: https://matic.network/banners/matic-network-16x9.png
 ---
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+This  framework is derived from  Consensys's [Four questions to Judge any scaling solution](https://consensys.net/?p=19015&preview=true&_thumbnail_id=19017)
+
 ## Who Operates It?
 Miner nodes on mainnet Ethereum move or “operate” the network forward by solving Proof of Work and creating new blocks. The L2 solution requires a similar “operator” role on its network, which is the miner-equivalent of Ethereum mainnet that can move the L2 network forward. There are a few differences, however. For example, along with processing and authorizing transactions like a miner, an L2 operator may also facilitate users entering and exiting the L2 layer itself.
 
