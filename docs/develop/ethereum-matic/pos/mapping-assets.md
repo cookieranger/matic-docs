@@ -10,12 +10,12 @@ image: https://matic.network/banners/matic-network-16x9.png
 
 ### Introduction
 
-Mapping is necessary in order to transfer your assets to and fro the Ethereum and Matic Network.
+Mapping is necessary in order to transfer your assets to and from the Ethereum and Matic Network.
 
-- **Root chain** :: referring to either Goerli or Ethereum Mainnet
-- **Child chain** :: refers to either Matic Mumbai or Matic Matic Mainnet
+- **The Root chain** :: refers to either Goerli or Ethereum Mainnet
+- **The Child chain** :: refers to either Matic Mumbai or Matic Matic Mainnet
 
-If you already have your token contract deployed on Root chain and want to move it to Child chain, then this walkthorugh can be followed. But If you intend to deploy your contract on Matic Mainnet first, mint the tokens on Child chain fitst and then move it back to the Root chain, then you need to follow this [guide](/docs/develop/ethereum-matic/mintable-assets)
+If you already have your token contract deployed on the Root chain and want to move it to Child chain, then you should follow this walkthrough, but if you intend to deploy your contract on Matic Mainnet first, mint the tokens on the Child chain first and then move them back to the Root chain. You should then follow this [guide](/docs/develop/ethereum-matic/mintable-assets).
 
 ## Standard Child Token
 
@@ -30,13 +30,13 @@ Please visit this [link](/docs/develop/ethereum-matic/submit-mapping-request) to
 
 ## Custom Child Token
 
-But, if you need a custom child token contract which has additional functions to the standard functions, **then you will have to deploy your token contracts on the Child chain** and submit a mapping request [here](https://mapper.matic.today/) by mentioning the address of your deployed child token contract. Let us now see an example of creating a custom child token contract.
+If you need a custom child token contract which has additional functions to the standard functions, **then you will have to deploy your token contracts on the Child chain** and submit a mapping request [here](https://mapper.matic.today/) and include the address of your deployed child token contract. Let's describe an example of creating a custom child token contract.
 
 **Your custom child contract should follow certain guidelines before you deploy it on the child chain.**
 
-`deposit` method should be present in your custom child contract. This function is called by the `ChildChainManagerProxy`  contract whenever a deposit is initiated from the root chain. This deposit function internally mints the token on the child chain.
+`deposit` method should be present in your custom child contract. This function is called by the `ChildChainManagerProxy` contract whenever a deposit is initiated from the root chain. This deposit function internally mints the token on the child chain.
 
-`withdraw` method should be present in your custom child contract. It can be called to burn your tokens on the child chain. Burning is the first step of your withdrawal process. This withdraw function internally burns the token on the child chain.
+`withdraw` method should be present in your custom child contract. It can be called to burn your tokens on the child chain. Burning is the first step of your withdrawal process. This withdraw function will internally burn the token on the child chain.
 
 These rules need to followed to maintain proper balance of assets between two chains.
 
@@ -44,7 +44,7 @@ These rules need to followed to maintain proper balance of assets between two ch
 
 #### Implementation
 
-As we now know, why we need to implement `deposit` & `withdraw` methods in child token contract, we can proceed for implementing it.
+Now that we covered _why_ we need to implement `deposit` & `withdraw` methods in child token contract, we can now proceed for implementing it.
 
 ```js title="ChildERC20.sol"
 pragma solidity 0.6.6;
@@ -84,7 +84,7 @@ contract ChildERC20 is ERC20,
 }
 ```
 
-But one thing you might notice, The `deposit` function, in the above implementation can be called by anyone, which must not happen. So we're going to make sure it can only be called by `ChildChainManagerProxy`. (ChildChainManagerProxy - on [Mumbai](https://explorer-mumbai.maticvigil.com/address/0xb5505a6d998549090530911180f38aC5130101c6/transactions) , on [Matic Mainnet](https://explorer-mainnet.maticvigil.com/address/0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa/) )
+One thing you might notice in the code sample above is that the `deposit` function can be called by anyone, which is not allowed. In order to prevent this, we're going to make sure it can only be called by `ChildChainManagerProxy`. (ChildChainManagerProxy - on [Mumbai](https://explorer-mumbai.maticvigil.com/address/0xb5505a6d998549090530911180f38aC5130101c6/transactions) , on [Matic Mainnet](https://explorer-mainnet.maticvigil.com/address/0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa/) )
 
 ```js title="ChildERC20.sol"
 pragma solidity 0.6.6;
@@ -148,11 +148,11 @@ This updated implementation can be used for mapping.
 
 Steps :
 
-- First deploy root token on root chain i.e. {Goerli, Ethereum Mainnet}
-- Ensure your child token has the `deposit` & `withdraw` functions
-- deploy the child token on child chain i.e. {Matic Mumbai, Matic Mainnet}
-- Then submit a mapping request, to be resolved by team.
+1. Deploy root token on root chain i.e. {Goerli, Ethereum Mainnet}
+2. Ensure your child token has the `deposit` & `withdraw` functions.
+3. Deploy the child token on child chain i.e. {Matic Mumbai, Matic Mainnet}
+4. Submit a mapping request, to be resolved by team.
 
 ### Request Submission
 
-Please go through [this](/docs/develop/ethereum-matic/submit-mapping-request).
+Please go use [this link](/docs/develop/ethereum-matic/submit-mapping-request) to submit a mapping request.

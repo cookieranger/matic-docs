@@ -90,7 +90,7 @@ cd bor
 # Checkout to a proper version
 # For eg: git checkout v0.2.5
 git checkout <TAG OR BRANCH>
-make all
+make bor-all
 ```
 
 That will install the `bor` binary and `bootnode` binary:
@@ -117,10 +117,10 @@ Available networks: `mainnet-v1` and `testnet-v4`
 Node types: `sentry` and `validator` 
 
 ```bash
-cp -rf launch/<network-name>/sentry/<node-type> ~/node
+cp -rf launch/<network-name>/sentry/<node-type>/* ~/node
 
 # To setup sentry node for mumbai (testnet-v4) testnet
-# cp -rf launch/testnet-v4/sentry/sentry ~/node
+# cp -rf launch/testnet-v4/sentry/sentry/* ~/node
 ```
 
 ### Setup network directories
@@ -140,6 +140,15 @@ bash setup.sh
 ```
 
 ## Setup service files
+  
+Download service.sh file
+
+```bash
+cd ~/node
+wget https://raw.githubusercontent.com/maticnetwork/launch/master/<network-name>/service.sh
+# To setup sentry node for mumbai (testnet-v4) testnet
+# wget https://raw.githubusercontent.com/maticnetwork/launch/master/testnet-v4/service.sh
+```
 
 Generate services files and copy them into system directory
 
@@ -300,7 +309,7 @@ cd bor
 # Checkout to a proper version
 # For eg: git checkout v0.2.5
 git checkout <TAG OR BRANCH>
-make all
+make bor-all
 ```
 
 That will install the `bor` binary and `bootnode` binary:
@@ -327,10 +336,10 @@ Available networks: `mainnet-v1`
 Node types: `sentry` and `validator` 
 
 ```bash
-cp -rf launch/<network-name>/sentry/<node-type> ~/node
+cp -rf launch/<network-name>/sentry/<node-type>/* ~/node
 
 # To setup sentry node for matic mainnet
-# cp -rf launch/mainnet-v1/sentry/sentry ~/node
+# cp -rf launch/mainnet-v1/sentry/sentry/* ~/node
 ```
 
 ### Setup network directories
@@ -350,6 +359,15 @@ bash setup.sh
 ```
 
 ## Setup service files
+  
+Download service.sh file
+
+```bash
+cd ~/node
+wget https://raw.githubusercontent.com/maticnetwork/launch/master/<network-name>/service.sh
+# To setup sentry node for mainnet (mainnet-v1)
+# wget https://raw.githubusercontent.com/maticnetwork/launch/master/mainnet-v1/service.sh
+```
 
 Generate services files and copy them into system directory
 
