@@ -217,7 +217,7 @@ module.exports = {
         "develop/dagger-webhooks",
         {
           type: "category",
-          label: "Zapier - Mulitple Apps",
+          label: "Zapier - Multiple Apps",
           items: ["develop/zapier/getting-started"],
         },
       ],
