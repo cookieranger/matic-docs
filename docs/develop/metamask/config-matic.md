@@ -38,7 +38,7 @@ To add Matic’s Mainnet, click on the Network selection dropdown and then click
 
 <img src={useBaseUrl("img/metamask/select-network.png")} />
 
-It will open up a form with 2 tabs on the top, Settings and Info. In the Settings tab you can add `Matic Mainnet` in the Network Name field, URL `https://rpc-mainnet.maticvigil.com/` in the New RPC URL field, `137` in Chain ID field, `MATIC` in Currency Symbol field and `https://explorer.matic.network/` in Block Explorer URL field.
+It will open up a form with 2 tabs on the top, Settings and Info. In the Settings tab you can add `Matic Mainnet` in the Network Name field, URL `https://rpc-mainnet.maticvigil.com/` in the New RPC URL field, `137` in Chain ID field, `MATIC` in Currency Symbol field and `https://polygonscan.com/` in Block Explorer URL field.
 
 <img src={useBaseUrl("img/metamask/metamask-settings-mainnet.png")} />
 
