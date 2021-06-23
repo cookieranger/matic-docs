@@ -99,8 +99,6 @@ Okcoin -  ETH, USDT, LINK, MKR, USDC, DAI, USDK, COMP, YFI, SNX, YFII, and UNI.
 
 Bitforex - MATIC
 
-Okex - BAL, BAT, CEL, COMP, CRV, DAI, ETH, GHST, GUSD, LINK, MKR, PAX, SNX, SUSHI, TUSD, UNI, USDC-ERC20, USDT-ERC20, USDK, wBTC, YFI, YFII, ZRX
-
 Sending Tokens to any other exchange that is not mentioned explicitly in the above list can lead to a loss of funds. If you want to withdraw funds to any exchange that does not support Polygon, you will have to first withdraw the token to Ethereum and then send it to the exchange using your Ethereum wallet. This video demonstrates how to withdraw funds from Matic to Ethereum - [https://www.youtube.com/watch?v=DgpHY95qrbQ&list=PLslsfan1R_z0Epvnqsj29V1LBAh99dzu9&index=5](https://www.youtube.com/watch?v=DgpHY95qrbQ&list=PLslsfan1R_z0Epvnqsj29V1LBAh99dzu9&index=5)
 
 Alternatively, you can follow this guide [here](/docs/develop/wallets/matic-web-wallet/web-wallet-v2-guide/).
