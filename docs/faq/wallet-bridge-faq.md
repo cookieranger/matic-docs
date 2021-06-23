@@ -95,7 +95,9 @@ Bitmax- USDC, EASY, MATIC
 
 MXC - MATIC, QUICK, PlotX, Dfyn
 
-Okcoin -  ETH, USDT, LINK, MKR, USDC, DAI, USDK, COMP, YFI, SNX, YFII, and UNI.
+Okcoin -  ETH, USDT, LINK, MKR, USDC, DAI, USDK, COMP, YFI, SNX, YFII, and UNI. ( Tokens can only be moved from Okcoin to Polygon chain. Transferring tokens from Polygon to Okcoin is not currently supported)
+
+Okex - BAL, BAT, CEL, COMP, CRV, DAI, ETH, GHST, GUSD, LINK, MKR, PAX, SNX, SUSHI, TUSD, UNI, USDC-ERC20, USDT-ERC20, USDK, wBTC, YFI, YFII, ZRX ( Tokens can only be moved from Okex to Polygon chain. Transferring tokens from Polygon to Okex is not currently supported)
 
 Bitforex - MATIC
 
