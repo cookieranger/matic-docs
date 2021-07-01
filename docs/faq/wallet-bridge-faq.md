@@ -33,7 +33,7 @@ MATIC tokens
 
 These blogs and videos are a perfect guide to start with depositing and withdrawing: [https://docs.matic.network/docs/develop/wallets/matic-web-wallet/web-wallet-v2-guide/#depositing-funds-from-ethereum-to-matic](https://docs.matic.network/docs/develop/wallets/matic-web-wallet/web-wallet-v2-guide/#depositing-funds-from-ethereum-to-matic)[https://www.youtube.com/playlist?list=PLslsfan1R_z0Epvnqsj29V1LBAh99dzu9](https://www.youtube.com/playlist?list=PLslsfan1R_z0Epvnqsj29V1LBAh99dzu9)
 
-## How to switch to Matic mainnet?
+## How to switch to Matic mainnet in Metamask?
 
 Assuming that you have already added the network and custom RPC for Matic mainnet in your Metamask wallet here is how you can switch:
 
@@ -48,6 +48,11 @@ Assuming that you have already added the network and custom RPC for Matic mainne
 You have now switched to Matic mainnet.
 
 You can refer to this link if you are looking for instructions on how to add the network to Metamask: [https://docs.matic.network/docs/develop/metamask/config-matic](https://docs.matic.network/docs/develop/metamask/config-matic)
+
+## How to choose Polygon mainnet in Walletlink?
+
+Please follow the guide provided [here](https://docs.matic.network/docs/develop/metamask/config-polygon-on-walletlink)
+
 
 ## I have deposited WETH but I don’t see it on Metamask. What do I do?
 
@@ -95,11 +100,11 @@ Bitmax- USDC, EASY, MATIC
 
 MXC - MATIC, QUICK, PlotX, Dfyn
 
-Okcoin -  ETH, USDT, LINK, MKR, USDC, DAI, USDK, COMP, YFI, SNX, YFII, and UNI.
+Okcoin -  ETH, USDT, LINK, MKR, USDC, DAI, USDK, COMP, YFI, SNX, YFII, and UNI. ( Tokens can only be moved from Okcoin to Polygon chain. Transferring tokens from Polygon to Okcoin is not currently supported)
+
+Okex - BAL, BAT, CEL, COMP, CRV, DAI, ETH, GHST, GUSD, LINK, MKR, PAX, SNX, SUSHI, TUSD, UNI, USDC-ERC20, USDT-ERC20, USDK, wBTC, YFI, YFII, ZRX ( Tokens can only be moved from Okex to Polygon chain. Transferring tokens from Polygon to Okex is not currently supported)
 
 Bitforex - MATIC
-
-Okex - BAL, BAT, CEL, COMP, CRV, DAI, ETH, GHST, GUSD, LINK, MKR, PAX, SNX, SUSHI, TUSD, UNI, USDC-ERC20, USDT-ERC20, USDK, wBTC, YFI, YFII, ZRX
 
 Sending Tokens to any other exchange that is not mentioned explicitly in the above list can lead to a loss of funds. If you want to withdraw funds to any exchange that does not support Polygon, you will have to first withdraw the token to Ethereum and then send it to the exchange using your Ethereum wallet. This video demonstrates how to withdraw funds from Matic to Ethereum - [https://www.youtube.com/watch?v=DgpHY95qrbQ&list=PLslsfan1R_z0Epvnqsj29V1LBAh99dzu9&index=5](https://www.youtube.com/watch?v=DgpHY95qrbQ&list=PLslsfan1R_z0Epvnqsj29V1LBAh99dzu9&index=5)
 
