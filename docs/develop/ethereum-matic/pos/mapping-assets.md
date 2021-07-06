@@ -84,7 +84,7 @@ contract ChildERC20 is ERC20,
 }
 ```
 
-One thing you might notice in the code sample above is that the `deposit` function can be called by anyone, which is not allowed. In order to prevent this, we're going to make sure it can only be called by `ChildChainManagerProxy`. (ChildChainManagerProxy - on [Mumbai](https://explorer-mumbai.maticvigil.com/address/0xb5505a6d998549090530911180f38aC5130101c6/transactions) , on [Matic Mainnet](https://explorer-mainnet.maticvigil.com/address/0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa/) )
+One thing you might notice in the code sample above is that the `deposit` function can be called by anyone, which is not allowed. In order to prevent this, we're going to make sure it can only be called by `ChildChainManagerProxy`. (ChildChainManagerProxy - on [Mumbai](https://mumbai.polygonscan.com/address/0xb5505a6d998549090530911180f38aC5130101c6/transactions) , on [Matic Mainnet](https://polygonscan.com/address/0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa/) )
 
 ```js title="ChildERC20.sol"
 pragma solidity 0.6.6;
