@@ -172,8 +172,8 @@ The Matic bridge brings over an ERC20 version of LINK, and LINK is an ERC677, so
 
 There are currently only a few operational Chainlink oracles on the Matic Mumbai Testnet. You can always run one yourself too, and list it on the Chainlink Marketplace.
 
-* Oracle: <a href="https://mumbai-explorer.matic.today/address/0x58bbdbfb6fca3129b91f0dbe372098123b38b5e9/transactions" target="_blank">`0xb33D8A4e62236eA91F3a8fD7ab15A95B9B7eEc7D`</a>
-* LINK: <a href="https://mumbai-explorer.matic.today/address/0x70d1F773A9f81C852087B77F6Ae6d3032B02D2AB/transactions" target="_blank">`0x326C977E6efc84E512bB9C30f76E30c160eD06FB`</a>
+* Oracle: <a href="https://mumbai.polygonscan.com/address/0x58bbdbfb6fca3129b91f0dbe372098123b38b5e9/transactions" target="_blank">`0xb33D8A4e62236eA91F3a8fD7ab15A95B9B7eEc7D`</a>
+* LINK: <a href="https://mumbai.polygonscan.com/address/0x70d1F773A9f81C852087B77F6Ae6d3032B02D2AB/transactions" target="_blank">`0x326C977E6efc84E512bB9C30f76E30c160eD06FB`</a>
 
 
 To obtain LINK on Mumbai Testnet, head to the <a href="https://faucet.matic.network/" target="_blank">faucet here</a>.

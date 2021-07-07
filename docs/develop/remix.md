@@ -117,7 +117,7 @@ Go to Solidity Compiler
 - Put in a Network name - “Matic Mumbai Testnet”
 - In URL field you can add the URL as "https://rpc-mumbai.matic.today"
 - Enter the Chain ID: 80001
-- (Optional Fields) Symbol: "maticmum" and Block Explorer URL: "https://mumbai-explorer.matic.today/"
+- (Optional Fields) Symbol: "maticmum" and Block Explorer URL: "https://mumbai.polygonscan.com/"
 <div
         style={{
           display: "flex",
@@ -178,7 +178,7 @@ Select 'Mumbai' as the network and 'MATIC Token' as the token in the faucet
         <img src={useBaseUrl("img/helloworld/Screenshot_2020-02-14_at_1.45.23_PM.png")} alt="RemixIDE_Step1"/>
 </div>
 
-**Congratulations!** You have successfully deployed HelloWorld Smart Contract. Now you can interact with the Smart Contract. Check the deployment status here: https://mumbai-explorer.matic.today/.
+**Congratulations!** You have successfully deployed HelloWorld Smart Contract. Now you can interact with the Smart Contract. Check the deployment status here: https://mumbai.polygonscan.com/.
 
 <div
         style={{
