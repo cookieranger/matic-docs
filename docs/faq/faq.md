@@ -1,5 +1,5 @@
 ---
-id: faq
+id: faq-old
 title: Basic FAQ 
 description: Build your next blockchain app on Matic.
 keywords:

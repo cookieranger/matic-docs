@@ -530,13 +530,13 @@ module.exports = {
     },
   ],
   faq: [
-    "faq/faq",
+    "faq/technical-faqs",
+    //"faq/faq",
     // "faq/delegator-faq",
     "faq/commit-chain-multisigs",
     "faq/staking-faq",
     "faq/staking-tutorials",
     "faq/wallet-bridge-faq",
-    "faq/technical-faqs",
     "faq/consensys-framework",
   ],
 };
