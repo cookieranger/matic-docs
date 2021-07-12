@@ -37,7 +37,7 @@ module.exports = {
     {
       type: "category",
       label: "Deploying on Matic",
-      items: ["develop/remix", "develop/truffle","develop/hardhat"],
+      items: ["develop/remix", "develop/truffle", "develop/hardhat"],
     },
     {
       type: "category",
@@ -74,12 +74,25 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Using Metamask",
+      label: "Configure Polygon on Wallets",
       items: [
-        "develop/metamask/hello",
-        "develop/metamask/config-polygon-on-wallets",
-        "develop/metamask/custom-tokens",
-        "develop/metamask/multiple-accounts",
+        {
+          type: "category",
+          label: "Metamask",
+          items: [
+            "develop/metamask/hello",
+            "develop/metamask/config-polygon-on-metamask",
+            "develop/metamask/custom-tokens",
+            "develop/metamask/multiple-accounts",
+          ],
+        },
+        {
+          type: "category",
+          label: "Wallet Link",
+          items: [
+            "develop/metamask/config-polygon-on-wallet-link",
+          ],
+        },
       ],
     },
 
@@ -112,7 +125,6 @@ module.exports = {
             "develop/wallets/matic-web-wallet/deposit-eth-dai-on-matic",
           ],
         },
-
       ],
     },
     {
@@ -133,7 +145,7 @@ module.exports = {
                 "develop/ethereum-matic/pos/using-sdk/eth",
                 "develop/ethereum-matic/pos/using-sdk/erc20",
                 "develop/ethereum-matic/pos/using-sdk/erc721",
-                "develop/ethereum-matic/pos/using-sdk/erc1155"
+                "develop/ethereum-matic/pos/using-sdk/erc1155",
               ],
             },
             {
@@ -182,7 +194,7 @@ module.exports = {
         "develop/metatransactions/getting-started",
         "develop/metatransactions/metatransactions-biconomy",
         "develop/metatransactions/metatransactions-gsn",
-        "develop/metatransactions/network-agnostics"
+        "develop/metatransactions/network-agnostics",
       ],
     },
     {
@@ -207,7 +219,6 @@ module.exports = {
           label: "Covalent",
           href: "https://www.covalenthq.com/docs/api/",
         },
-
       ],
     },
     {
@@ -226,10 +237,7 @@ module.exports = {
     {
       type: "category",
       label: "Tutorials",
-      items: [
-        "develop/pos-using-metamask",
-        "develop/plasma-using-metamask",
-      ],
+      items: ["develop/pos-using-metamask", "develop/plasma-using-metamask"],
     },
     {
       type: "category",
@@ -315,8 +323,6 @@ module.exports = {
           items: [
             "contribute/state-sync/state-sync",
             "contribute/state-sync/how-state-sync-works",
-
-
           ],
         },
         "home/architecture/security-models",
@@ -338,14 +344,12 @@ module.exports = {
             {
               type: "link",
               label: "Matic-Mainnet",
-              href:
-                "https://github.com/maticnetwork/static/blob/master/network/mainnet/v1/index.json",
+              href: "https://github.com/maticnetwork/static/blob/master/network/mainnet/v1/index.json",
             },
             {
               type: "link",
               label: "Mumbai",
-              href:
-                "https://static.matic.network/network/testnet/mumbai/index.json",
+              href: "https://static.matic.network/network/testnet/mumbai/index.json",
             },
           ],
         },
@@ -369,8 +373,7 @@ module.exports = {
     {
       type: "category",
       label: "Advanced",
-      items: ["integrate/full-node-deployment",
-      "integrate/full-node-binaries"],
+      items: ["integrate/full-node-deployment", "integrate/full-node-binaries"],
     },
   ],
   Validate: [
@@ -519,8 +522,6 @@ module.exports = {
           items: [
             "contribute/state-sync/state-sync",
             "contribute/state-sync/how-state-sync-works",
-
-
           ],
         },
 
@@ -537,6 +538,5 @@ module.exports = {
     "faq/wallet-bridge-faq",
     "faq/technical-faqs",
     "faq/consensys-framework",
-
   ],
 };
