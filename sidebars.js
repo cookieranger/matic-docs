@@ -531,7 +531,6 @@ module.exports = {
   ],
   faq: [
     "faq/technical-faqs",
-    //"faq/faq",
     // "faq/delegator-faq",
     "faq/commit-chain-multisigs",
     "faq/staking-faq",
